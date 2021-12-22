@@ -1,23 +1,24 @@
 import { hours } from "./data";
+import { TrashIcon } from '@heroicons/react/outline'
 
 function ReportTable(props) {
   const { location, min, max, avg } = props;
   return (
     <>
     {location.length > 0 && (
-      <table className="w-3/4 mx-auto mt-6 text-center">
-        <thead className="bg-emerald-500 border-hidden">
-          <th className="border border-hidden">Location</th>
+      <table className="w-5/6 mx-auto mt-6 text-center">
+        <thead className="bg-emerald-500 border border-stone-900">
+          <th className="border border-stone-900">Location</th>
           {hours.map((hour) => {
-            return <th className="border border-hidden">{hour}</th>;
+            return <th className="border border-stone-900">{hour}</th>;
           })}
-          <th className="border border-hidden">Totals</th>
+          <th className="border border-stone-900">Totals</th>
         </thead>
         <tbody>
           {location.map((item) => {
             return (
-              <tr className="even:bg-emerald-400  odd:bg-emerald-200 border border-stone-900">
-                <td className="border border-stone-900 text-left">{item}</td>
+              <tr key={item[1]} className="even:bg-emerald-400  odd:bg-emerald-200 border border-stone-900">
+                <td className="flex justify-between px-4 border-stone-900 text-left">{item[0]} <button onClick={() =>props.deletehandler(item[1])} className="mr-0"><TrashIcon className="h-5 w-5 text-red-400"/></button> </td>
                 {[48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36].map(
                   (item) => {
                     return <td className="border border-stone-900">{item}</td>;

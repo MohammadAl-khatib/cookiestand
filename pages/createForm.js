@@ -1,28 +1,29 @@
 function CreateForm(props) {
   return (
-    <div className=" mt-8 bg-emerald-300 w-3/4 m-auto pb-4 rounded">
-      <h3 className="text-center text-2xl font-medium py-4">Create Cookie Stand</h3>
+    <div className="border-2 border-emerald-400 mt-8 bg-emerald-200 w-5/6 m-auto pb-4 rounded-lg px-12">
       <form className="m-auto" onSubmit={(e) => props.formHandler(e)}>
-        <label className="text-center ml-4 font-medium">Location </label>
-        <input
-          name="location"
-          className=" w-[65rem] h-5"
-          placeholder="Enter branch name..."
-        />
+        <div className="flex justify-between place-items-end ml-4 mr-8 mt-6">
+          <div className="block bg-emerald-200  px-2 rounded">
+            <h3 className="text-center font-extrabold mb-2">ADD LOCATION</h3>
+            <input name="location" className=" w-[45rem] h-9 pl-3"   placeholder="Cookie Stand Location"/>
+          </div>
+          <button className=" h-[3rem] bg-emerald-500 rounded font-medium w-[22rem]">CREATE STAND</button>
+        </div>
+
         <div className="flex justify-between ml-4 mr-8 mt-6">
           <div className="block bg-emerald-200 pb-2 px-2 rounded">
-            <h3 className="text-center font-medium">Minimum Customer per Hour</h3>
-            <input name="min" className=" w-[17rem] h-5" />
+            <h3 className="text-center font-extrabold pb-2">Minimum Customer per Hour</h3>
+            <input name="min" className=" w-[20rem] h-9 pl-3" defaultValue ={0} />
           </div>
           <div className="block bg-emerald-200 pb-2 px-2 rounded">
-            <h3 className="text-center font-medium">Maximum Customer per Hour</h3>
-            <input name="max" className=" w-[17rem] h-5" />
+            <h3 className="text-center font-extrabold pb-2">Maximum Customer per Hour</h3>
+            <input name="max" className=" w-[20rem] h-9 pl-3" defaultValue ={0}/>
           </div>
           <div className="block bg-emerald-200 pb-2 px-2 rounded">
-            <h3 className="text-center font-medium">Average Cookies per Sale</h3>
-            <input name="avg" className=" w-[17rem] h-5" />
+            <h3 className="text-center font-extrabold pb-2">Average Cookies per Sale</h3>
+            <input name="avg" className=" w-[20rem] h-9 pl-3" defaultValue ={0}/>
           </div>
-          <button className="px-20 py-1 bg-emerald-500 rounded font-medium">Create</button>
+          
         </div>
       </form>
     </div>

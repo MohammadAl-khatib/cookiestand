@@ -19,8 +19,8 @@ function CookieStandAdmin(props) {
     setMin(e.target.min.value);
     setMax(e.target.max.value);
     setAvg(e.target.avg.value);
-    await axios.post('http://127.0.0.1:8000/api/v1/cookies/',{'location': e.target.location.value}, config).then( ()=> {
-      axios.get ('http://127.0.0.1:8000/api/v1/cookies/', config).then(res =>{
+    await axios.post(`${process.env.NEXT_PUBLIC_API}/api/v1/cookies/`,{'location': e.target.location.value}, config).then( ()=> {
+      axios.get (`${process.env.NEXT_PUBLIC_API}/api/v1/cookies/`, config).then(res =>{
         setLocation(res.data.map(item =>{
           return [item.location, item.id]
         }))
@@ -29,8 +29,8 @@ function CookieStandAdmin(props) {
   };
 
   const deletehandler = async (id) => {
-    await axios.delete(`http://127.0.0.1:8000/api/v1/cookies/${id}`,config).then(() =>{
-      axios.get ('http://127.0.0.1:8000/api/v1/cookies/', config).then(res =>{
+    await axios.delete(`${process.env.NEXT_PUBLIC_API}/api/v1/cookies/${id}`,config).then(() =>{
+      axios.get (`${process.env.NEXT_PUBLIC_API}/api/v1/cookies/`, config).then(res =>{
         setLocation(res.data.map(item =>{
           return [item.location, item.id]
         }))

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import CookieStandAdmin from "./cookieStandAdmin";
-import LoginForm from './login'
+import CookieStandAdmin from "../components/cookieStandAdmin";
+import LoginForm from '../components/login'
 
 export default function Home() {
   const [login, setlogin] = useState('')
